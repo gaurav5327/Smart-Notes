@@ -11,6 +11,10 @@ dotenv.config();
 const app = express();
 console.log("🔍 MONGO_URI:", process.env.MONGO_URI);
 
+app.get("/", (req, res) => {
+    res.send("API Running Successfully");
+})
+
 // Middleware
 app.use(cors());
 app.use(express.json());
