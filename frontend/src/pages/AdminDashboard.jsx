@@ -13,7 +13,7 @@ import {
 } from "react-bootstrap";
 import toast from "react-hot-toast";
 
-const API_URL = import.meta.env.REACT_APP_API_BASE || '';
+const API_URL = "https://smart-notes-backend-7jud.onrender.com";
 
 const AdminDashboard = () => {
   const [users, setUsers] = useState([]);
