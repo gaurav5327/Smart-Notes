@@ -12,7 +12,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
 
-const API_URL = import.meta.env.REACT_APP_API_BASE || '';
+const API_URL = "https://smart-notes-backend-7jud.onrender.com"
 
 const Login = () => {
   const [formData, setFormData] = useState({
