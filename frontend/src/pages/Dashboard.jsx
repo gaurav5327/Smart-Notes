@@ -15,6 +15,8 @@ import {
 } from "react-bootstrap";
 import toast from "react-hot-toast";
 
+const API_URL = import.meta.env.REACT_APP_API_BASE || '';
+
 const Dashboard = () => {
   const { user } = useContext(AuthContext);
   const [file, setFile] = useState(null);
@@ -41,7 +43,7 @@ const Dashboard = () => {
         return;
       }
 
-      const res = await axios.get("/api/notes", {
+      const res = await axios.get(`${API_URL}/api/notes`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -102,7 +104,7 @@ const Dashboard = () => {
       setError("");
 
       const token = JSON.parse(localStorage.getItem("user")).token;
-      const response = await axios.post("/api/notes/upload", formData, {
+      const response = await axios.post(`${API_URL}/api/notes/upload`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
@@ -156,7 +158,7 @@ const Dashboard = () => {
 
     try {
       const token = JSON.parse(localStorage.getItem("user")).token;
-      await axios.delete(`/api/notes/${noteId}`, {
+      await axios.delete(`${API_URL}/api/notes/${noteId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
