@@ -13,6 +13,8 @@ import {
 } from "react-bootstrap";
 import toast from "react-hot-toast";
 
+const API_URL = import.meta.env.REACT_APP_API_BASE || '';
+
 const AdminDashboard = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -23,7 +25,7 @@ const AdminDashboard = () => {
       setLoading(true);
       setError("");
       const token = JSON.parse(localStorage.getItem("user")).token;
-      const res = await axios.get("/api/admin/users", {
+      const res = await axios.get(`${API_URL}/api/admin/users`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -52,7 +54,7 @@ const AdminDashboard = () => {
 
     try {
       const token = JSON.parse(localStorage.getItem("user")).token;
-      await axios.delete(`/api/admin/users/${id}`, {
+      await axios.delete(`${API_URL}/api/admin/users/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
