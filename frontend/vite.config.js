@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:5000', // your backend port
+        target: 'https://smart-notes-backend-7jud.onrender.com', // your backend port
         changeOrigin: true,
       },
     },
