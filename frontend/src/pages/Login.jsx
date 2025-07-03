@@ -12,6 +12,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
 
+const API_URL = import.meta.env.REACT_APP_API_BASE || '';
+
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -36,7 +38,7 @@ const Login = () => {
     setError("");
 
     try {
-      const res = await axios.post("/api/auth/login", {
+      const res = await axios.post(`${API_URL}/api/auth/login`, {
         email: formData.email,
         password: formData.password,
       });
