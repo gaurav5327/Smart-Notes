@@ -18,6 +18,8 @@ app.get("/", (req, res) => {
 // Middleware
 app.use(cors({
   origin: 'https://smart-notes-frontend.onrender.com',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 }));
 app.use(express.json());
